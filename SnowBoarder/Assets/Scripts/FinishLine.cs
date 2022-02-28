@@ -9,7 +9,7 @@ public class FinishLine : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            // SceneManager.LoadScene();
+            SceneManager.LoadScene(0);
             Debug.Log("You Finished");
         }
     }
