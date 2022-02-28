@@ -6,6 +6,8 @@ public class Delivery : MonoBehaviour
 {
     bool hasPackage;
 
+    [SerializeField] float destroyDelayTime = 0.5f;
+
     // private void OnCollisionEnter2D(Collision2D other)
     // {
     //     Debug.Log("I bumped into something");
@@ -14,10 +16,11 @@ public class Delivery : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.tag == "Package")
+        if (other.tag == "Package" && !hasPackage)
         {
             Debug.Log("I crossed a package");
             hasPackage = true;
+            Destroy(other.gameObject, destroyDelayTime);
         }
 
         if (other.tag == "Customer")
